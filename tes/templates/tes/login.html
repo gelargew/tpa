@@ -1,0 +1,25 @@
+{% extends 'tes/base.html' %}
+{% block content %}
+    <h1>THIS IS THE LOGIN PAGE</h1>
+    <form name = "form" method = "POST" >
+        {% csrf_token %}
+        <div style = "max-width:470px;">
+            <label>nama:</label>
+            <input type = "text" style = "margin-left:20%;" 
+            placeholder = "nama" name = "name" />
+            <br>
+            <label>Tempat tanggal lahir:</label>
+            <input type = "text" style = "margin-left:20%;" 
+            placeholder = "tempat, hari-bulan-tahun" name = "birth" />
+            <br>
+            <label>Pendidikan Terakhir:</label>
+            <input type = "text" style = "margin-left:20%;" 
+            placeholder = "pendidikan terakhir" name = "education" />
+            <br>
+            <label>Alamat:</label>
+            <input type = "text" style = "margin-left:20%;" 
+            placeholder = "alamat" name = "address" />
+            <br>
+
+         </div>
+{% endblock %}

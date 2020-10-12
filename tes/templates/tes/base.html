@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+        <link rel='stylesheet' type='text/css' href="{% static 'tes/style.css' %}">
+        <title>Tes Potensi Akademik</title>
+    </head>
+        <body>
+            <div class='container'>
+            <h1>Tes Potensi Akademik</h1>
+            {% block content %} {% endblock %}
+            </div>
+        </body>
+        <script>
+        function myFunction() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+          }
+        </script>
+</html>

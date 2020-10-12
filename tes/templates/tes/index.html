@@ -1,0 +1,23 @@
+{% extends 'tes/base.html' %}
+{% block content %}
+    {% if question_list %}
+        {% for q in question_list %}
+            <p>{{ q.nomor }}. {{q.question_text }}</p>
+            <form method="post">
+                {% csrf_token %}
+            <input type='radio' id='1' value='1' name={{q.nomor}}>
+            <label>A. {{ q.choice1 }}</label><br>
+            <input type='radio' id='2' value='2' name={{q.nomor}}>
+            <label>B. {{ q.choice2 }}</label><br>
+            <input type='radio' id='3' value='3' name={{q.nomor}}>
+            <label>C. {{ q.choice3 }}</label><br>
+            <input type='radio' id='4' value='4' name={{q.nomor}}>
+            <label>D. {{ q.choice4 }}</label>
+            <br><br>
+        {% endfor %}
+            <input type='submit' value='Submit'>
+            </form>
+    {% else %}
+        <p>Test is currently unavailable</p>
+    {% endif %}
+{% endblock %}
