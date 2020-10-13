@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tes.apps.TesConfig',
     'users.apps.UsersConfig',
-    'crispy_forms',
 ]
 
 MIDDLEWARE = [
