@@ -141,7 +141,7 @@ def login(request):
             p.save()
             print('p saved')
         context.update({'no_peserta': form['no_peserta']})
-        return HttpResponseRedirect('tes-pa.herokuapp.com/tes/')
+        return HttpResponseRedirect('tes/')
     return render(request, 'tes/login.html')
 
 
