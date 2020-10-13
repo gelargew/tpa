@@ -31,7 +31,7 @@ def index(request):
                 people.subtest1 = nilai
                 people.nilai = nilai
                 people.save()
-        return HttpResponseRedirect('http://https://tes-pa.herokuapp.com/subtest2/')
+        return HttpResponseRedirect('tes-pa.herokuapp.com/subtest2/')
     return HttpResponse(template.render(context, request))
 
 #subtest2
@@ -62,7 +62,7 @@ def subtest2(request):
             x.subtest2 = nilai
             x.nilai = x.subtest1 + x.subtest2 + x.subtest3 + x.subtest4
             x.save()
-            return HttpResponseRedirect('https://tes-pa.herokuapp.com/subtest3/')
+            return HttpResponseRedirect('tes-pa.herokuapp.com/subtest3/')
     return HttpResponse(template.render(context, request))
 
 #subtest3
@@ -94,7 +94,7 @@ def subtest3(request):
             x.subtest3 = nilai
             x.nilai = x.subtest1 + x.subtest2 + x.subtest3 + x.subtest4
             x.save()
-            return HttpResponseRedirect('https://tes-pa.herokuapp.com/subtest4/')
+            return HttpResponseRedirect('tes-pa.herokuapp.com/subtest4/')
     return HttpResponse(template.render(context, request))
 
 
@@ -127,7 +127,7 @@ def subtest4(request):
             x.subtest4 = nilai
             x.nilai = x.subtest1 + x.subtest2 + x.subtest3 + x.subtest4
             x.save()
-            return HttpResponseRedirect('https://tes-pa.herokuapp.com/finish/' )
+            return HttpResponseRedirect('tes-pa.herokuapp.com/finish/' )
     return HttpResponse(template.render(context, request))
 
 
@@ -141,7 +141,7 @@ def login(request):
             p.save()
             print('p saved')
         context.update({'no_peserta': form['no_peserta']})
-        return HttpResponseRedirect('https://tes-pa.herokuapp.com/tes/')
+        return HttpResponseRedirect('tes-pa.herokuapp.com/tes/')
     return render(request, 'tes/login.html')
 
 
