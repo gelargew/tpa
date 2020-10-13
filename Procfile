@@ -1,1 +1,1 @@
-web: gunicorn tpa.wsgi --log-file --preload-
+web: gunicorn tpa.wsgi --preload-
