@@ -3,12 +3,12 @@ from django.template import loader
 from django.shortcuts import render
 from .models import Question, Person
 
-
+endpage = loader.get_template('tes/finish.html')
 #subtest1
 def index(request):
     soal = Question.objects.filter(subtest='1').order_by('nomor')
     if not soal:
-        return render(request, 'tes/finish.html')
+        return HttpResponse(endpage.render())
     template = loader.get_template('tes/index.html')
     context = {
         'question_list': soal,
@@ -31,14 +31,15 @@ def index(request):
                 people.subtest1 = nilai
                 people.nilai = nilai
                 people.save()
-        return HttpResponse('tes/subtest2.html'.render())
+        tem = loader.get_template('tes/subtest2.html')
+        return HttpResponse(tem.render())
     return HttpResponse(template.render(context, request))
 
 #subtest2
 def subtest2(request):
     soal = Question.objects.filter(subtest='2').order_by('nomor')
     if not soal:
-        return render(request, 'tes/finish.html')
+        return HttpResponse(endpage.render())
     template = loader.get_template('tes/subtest2.html')
     context = {
         'question_list': soal,
@@ -62,14 +63,15 @@ def subtest2(request):
             x.subtest2 = nilai
             x.nilai = x.subtest1 + x.subtest2 + x.subtest3 + x.subtest4
             x.save()
-            return HttpResponse('tes/subtest3.html'.render())
+            tem = loader.get_template('tes/subtest3.html')
+            return HttpResponse(tem.render())
     return HttpResponse(template.render(context, request))
 
 #subtest3
 def subtest3(request):
     soal = Question.objects.filter(subtest='3').order_by('nomor')
     if not soal:
-        return render(request, 'tes/finish.html')
+        return HttpResponse(endpage.render())
     template = loader.get_template('tes/subtest3.html')
     context = {
         'question_list': soal,
@@ -94,14 +96,15 @@ def subtest3(request):
             x.subtest3 = nilai
             x.nilai = x.subtest1 + x.subtest2 + x.subtest3 + x.subtest4
             x.save()
-            return HttpResponse('tes/subtest4.html'.render())
+            tem = loader.get_template('tes/subtest4.html')
+            return HttpResponse(tem.render())
     return HttpResponse(template.render(context, request))
 
 
 def subtest4(request):
     soal = Question.objects.filter(subtest='4').order_by('nomor')
     if not soal:
-        return render(request, 'tes/finish.html')
+        return HttpResponse(endpage.render())
     template = loader.get_template('tes/subtest4.html')
     context = {
         'question_list': soal,
@@ -127,7 +130,7 @@ def subtest4(request):
             x.subtest4 = nilai
             x.nilai = x.subtest1 + x.subtest2 + x.subtest3 + x.subtest4
             x.save()
-            return HttpResponse('tes/subtest4.html'.render())
+            return HttpResponse(endpage.render())
     return HttpResponse(template.render(context, request))
 
 
@@ -146,4 +149,4 @@ def login(request):
 
 
 def finish(request):
-    return render(request, 'tes/finish.html')
+    return HttpResponse(endpage.render())
