@@ -1,11 +1,10 @@
 {% extends 'tes/base.html' %}
 {% block content %}
-<!-- Display the countdown timer in an element -->
 <p id="demo"></p>
 
 <script>
 // Set the date we're counting down to
-var countDownDate = new Date().getTime() + (5*1000);
+var countDownDate = new Date().getTime() + (20*60*1000);
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -34,9 +33,10 @@ var x = setInterval(function() {
 }, 1000);
 </script>
     {% if question_list %}
+        <h3>Subtest2</h3>
         {% for q in question_list %}
             <p>{{ q.nomor }}. {{q.question_text }}</p>
-            <form method="POST">
+            <form method="post">
                 {% csrf_token %}
             <input type='radio' id='1' value='a' name={{q.nomor}}>
             <label>A. {{ q.choiceA }}</label><br>
@@ -46,13 +46,13 @@ var x = setInterval(function() {
             <label>C. {{ q.choiceC }}</label><br>
             <input type='radio' id='4' value='d' name={{q.nomor}}>
             <label>D. {{ q.choiceD }}</label><br>
-            <input type='radio' id='4' value='e' name={{q.nomor}}>
-            <label>D. {{ q.choiceE }}</label>
+            <input type='radio' id='5' value='e' name={{q.nomor}}>
+            <label>E. {{ q.choiceE }}</label>
             <br><br>
         {% endfor %}
             <label>Masukan kembali nomor peserta anda</label><br>
             <input type="text" id='no_peserta' name='no_peserta'><br>
-            <input type='submit' value='selesai' name='selesai' id='selesai'>
+            <input type='submit' id='selesai' value='selesai' name='selesai'>
             </form>
     {% else %}
         <p>Test is currently unavailable</p>
