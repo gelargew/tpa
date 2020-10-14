@@ -136,12 +136,13 @@ def subtest4(request):
 def login(request):
     context = {}
     form = request.POST
-    if form:
-        p = Person(nama=form['name'], nik=form['nik'], no_peserta=form['no_peserta'], jurusan=form['jurusan'])
-        if not Person.objects.filter(no_peserta=form['no_peserta']):
-            p.save()
-            print('p saved')
-        context.update({'no_peserta': form['no_peserta']})
+    if request.POST.get('no_peserta'):
+        if form:
+            p = Person(nama=form['name'], nik=form['nik'], no_peserta=form['no_peserta'], jurusan=form['jurusan'])
+            if not Person.objects.filter(no_peserta=form['no_peserta']):
+                p.save()
+                print('p saved')
+            context.update({'no_peserta': form['no_peserta']})
         return HttpResponseRedirect(reverse('index'))
     return render(request, 'tes/login.html')
 
