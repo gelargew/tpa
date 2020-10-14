@@ -18,7 +18,7 @@ def index(request):
     if request.POST.get('selesai') == 'selesai':
         nilai = 0
         print('submitted')
-        for num in range(1, len(soal)):
+        for num in range(1, len(soal)+1):
             answer = request.POST.get(str(num))
             kunci = Question.objects.filter(nomor=num, subtest='1')
             if len(kunci) == 1:
@@ -49,7 +49,7 @@ def subtest2(request):
     if request.POST.get('selesai') == 'selesai':
         nilai = 0
         print('submitted')
-        for num in range(1, len(soal)):
+        for num in range(1, len(soal)+1):
             n = num + 10
             answer = request.POST.get(str(n))
             kunci = Question.objects.filter(nomor=n, subtest='2')
@@ -80,7 +80,7 @@ def subtest3(request):
     if request.POST.get('selesai') == 'selesai':
         nilai = 0
         print('submitted')
-        for num in range(1, len(soal)):
+        for num in range(1, len(soal)+1):
             n = num + 20
             answer = request.POST.get(str(n))
             kunci = Question.objects.filter(nomor=n, subtest='3')
@@ -112,7 +112,7 @@ def subtest4(request):
     if request.POST.get('selesai') == 'selesai':
         nilai = 0
         print('submitted')
-        for num in range(1, len(soal)):
+        for num in range(1, len(soal)+1):
             n = num + 30
             answer = request.POST.get(str(n))
             kunci = Question.objects.filter(nomor=n, subtest='4')
