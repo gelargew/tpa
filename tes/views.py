@@ -136,7 +136,7 @@ def subtest4(request):
 def login(request):
     context = {}
     form = request.POST
-    if len(form) > 4:
+    if form['no_peserta']:
         p = Person(nama=form['name'], nik=form['nik'], no_peserta=form['no_peserta'], jurusan=form['jurusan'])
         if not Person.objects.filter(no_peserta=form['no_peserta']):
             p.save()
